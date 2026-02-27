@@ -1,0 +1,48 @@
+services:
+
+  mysql:
+    image: mysql:8
+    container_name: lms_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: vignesh
+      MYSQL_DATABASE: lms_db
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  django:
+    build: ./django_admin
+    container_name: lms_django
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./django_admin:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: always
+
+  fastapi:
+    build: ./fastapi_backend
+    container_name: lms_fastapi
+    command: >
+      sh -c "uvicorn main:app --host 0.0.0.0 --port 9000"
+    volumes:
+      - ./fastapi_backend:/app
+    ports:
+      - "9000:9000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: always
+
+volumes:
+  mysql_data:

@@ -1,0 +1,16 @@
+# ===============================
+# DJANGO ADMIN PANEL
+# ===============================
+
+Django==4.2.13
+djangorestframework==3.14.0
+
+# MySQL Driver
+mysqlclient==2.2.4
+pymysql==1.1.0
+
+# Environment Config (optional but professional)
+python-dotenv==1.0.1
+
+# Production Server (optional)
+gunicorn==21.2.0
