@@ -1,5 +1,13 @@
 LMS--(Django Admin + FastAPI User Panel)
 
+## Project Overview
+
+This project is a Multi-Panel Learning Platform built using:
+
+- Django → Admin Panel  
+- FastAPI → User Panel (REST APIs)  
+- MySQL → Shared Database  
+
 Setup Guide
 - Prerequisites: Python 3.11+, pip, Git
 - Copy environment: cp .env.example .env and fill secrets (JWT, SMTP, optional DB URL)
@@ -135,3 +143,4 @@ Models
 Postman
 - Import postman_collection.json
 - Use Register → Login to obtain token; set variable {{token}}
+
