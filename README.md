@@ -25,10 +25,13 @@ Restart Admin and API servers
 Testing Guide
 
 Auth:
-POST /auth/register/ → create user; POST /token/ → get JWT (username=email)
+POST /auth/register/
+→ create user; POST /token/ 
+→ get JWT (username=email)
 Use Authorize in Swagger (http://localhost:8001/docs)
 Plans & Subscriptions:
-Add plans in Admin; GET /plans/ then POST /subscribe/ to purchase
+Add plans in Admin;
+GET /plans/ then POST /subscribe/ to purchase
 Expect: email to user; in‑app notification; Payment recorded
 Courses & Enrollments:
 Publish courses; POST /enroll/ to enroll
@@ -95,10 +98,15 @@ Manage Plans, Subscriptions, and Payments (INR pricing)
 User Panel (FastAPI) Auth
 
 POST /token/ — OAuth2 password flow (username=email) returns JWT
+
 POST /auth/register/ — create user and return JWT
+
 POST /auth/login/ — login returning JWT Plans
+
 GET /plans/ — list plans (INR)
+
 POST /subscribe/ — purchase plan (creates Subscription + Payment) Courses
+
 GET /courses/ — free courses for non-subscribers; all courses with valid subscription
 GET /courses/{id} — guards premium content behind valid subscription Enrollments
 POST /enroll/ — enroll as student
@@ -128,3 +136,4 @@ Postman
 
 Import postman_collection.json
 Use Register → Login to obtain token; set variable {{token}}
+
