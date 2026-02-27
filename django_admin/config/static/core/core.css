@@ -1,0 +1,16 @@
+.btn-primary {
+  background-color: #2E86C1;
+  border-color: #2E86C1;
+}
+.navbar-brand {
+  color: #1f3a5f;
+}
+
+body {
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card .card-title {
+  letter-spacing: 0.2px;
+}

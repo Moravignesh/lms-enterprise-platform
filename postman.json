@@ -1,0 +1,552 @@
+{
+  "info": {
+    "_postman_id": "7b30a267-1be4-4b49-b50e-df6b95c015fc",
+    "name": "Learning Management Platform APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51885489",
+    "_collection_link": "https://go.postman.co/collection/51885489-7b30a267-1be4-4b49-b50e-df6b95c015fc?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Vignesh\",\r\n  \"email\": \"vignesh_postman@gmail.com\",\r\n  \"password\": \"1234\",\r\n  \"role\": \"student\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:9000/register/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "register",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "username",
+              "value": "vignesh_postman@gmail.com",
+              "type": "text",
+              "uuid": "f3dec5a2-e401-47ee-82c2-067abc83498c"
+            },
+            {
+              "key": "password",
+              "value": "1234",
+              "type": "text",
+              "uuid": "9da04d58-a0de-4d2e-bbd6-5c2304302d7d"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:9000/login/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "login",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "list courses",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:9000/courses/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "courses",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Enroll course",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZXhwIjoxNzcxOTMxMjQ2fQ.9xrBQwfVRJsI7rNtv6uzcSIRQRo3DG-CXQyO2ghY7rc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:9000/enroll/?course_id=1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "enroll",
+            ""
+          ],
+          "query": [
+            {
+              "key": "course_id",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "my courses",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZXhwIjoxNzcxOTMxMjQ2fQ.9xrBQwfVRJsI7rNtv6uzcSIRQRo3DG-CXQyO2ghY7rc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:9000/my-courses/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "my-courses",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update progress",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZXhwIjoxNzcxOTMxMjQ2fQ.9xrBQwfVRJsI7rNtv6uzcSIRQRo3DG-CXQyO2ghY7rc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:9000/progress/update/?enrollment_id=1&completed_lessons=2&progress_percent=50",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "progress",
+            "update",
+            ""
+          ],
+          "query": [
+            {
+              "key": "enrollment_id",
+              "value": "1"
+            },
+            {
+              "key": "completed_lessons",
+              "value": "2"
+            },
+            {
+              "key": "progress_percent",
+              "value": "50"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "view progress",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZXhwIjoxNzcxOTMxMjQ2fQ.9xrBQwfVRJsI7rNtv6uzcSIRQRo3DG-CXQyO2ghY7rc",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:9000/progress/view/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "progress",
+            "view",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
+{
+  "info": {
+    "_postman_id": "a76e8415-465a-483a-b62d-fc5e7c3b0344",
+    "name": "Subscription Video Learning Platform",
+    "description": "### Welcome to Postman! This is your first collection.\n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests  \n• Test your API in real-world scenarios  \n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51885489",
+    "_collection_link": "https://go.postman.co/collection/51885489-a76e8415-465a-483a-b62d-fc5e7c3b0344?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "username",
+              "value": "Rohan",
+              "type": "text",
+              "uuid": "8b92a031-584b-4d76-8036-492c061a76d8"
+            },
+            {
+              "key": "password",
+              "value": "123456",
+              "type": "text",
+              "uuid": "6e95ce9c-9d42-459f-a39e-674ab3799df6"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:9000/auth/login/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "auth",
+            "login",
+            ""
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Register",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"virat\",\n  \"email\": \"virat@mail.com\",\n  \"password\": \"123456\",\n  \"role\": \"student\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:9000/auth/register/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "auth",
+            "register",
+            ""
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Get plans",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:9000/plans/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "plans",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "subscribe to plan",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJSb2hhbiIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjoxNzcyMDQxNzIxfQ.j20VTEwRjm70THsVyNJtlObuGQfKSZaNnEA3YmN70xk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"plan_id\": 9\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:9000/subscribe/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "subscribe",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get courses",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJSb2hhbiIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjoxNzcyMDQxNzIxfQ.j20VTEwRjm70THsVyNJtlObuGQfKSZaNnEA3YmN70xk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:9000/courses/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "courses",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get payments",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJSb2hhbiIsInJvbGUiOiJzdHVkZW50IiwiZXhwIjoxNzcyMDQxNzIxfQ.j20VTEwRjm70THsVyNJtlObuGQfKSZaNnEA3YmN70xk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:9000/payments/",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "9000",
+          "path": [
+            "payments",
+            ""
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
+ {
+      "name": "Notifications - List",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+        "url": {"raw": "http://localhost:8001/notifications/", "protocol": "http", "host": ["localhost"], "port": "8001", "path": ["notifications",""]}
+      }
+    },
+    {
+      "name": "Notifications - Mark Read",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"},{"key": "Authorization", "value": "Bearer {{token}}"}],
+        "url": {"raw": "http://localhost:8001/notifications/mark-read/", "protocol": "http", "host": ["localhost"], "port": "8001", "path": ["notifications","mark-read",""]},
+        "body": {"mode": "raw", "raw": "{\n  \"mark_all\": true\n}"}
+      }
+    },
+    {
+      "name": "Activity - Log",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"},{"key": "Authorization", "value": "Bearer {{token}}"}],
+        "url": {"raw": "http://localhost:8001/activity/", "protocol": "http", "host": ["localhost"], "port": "8001", "path": ["activity",""]},
+        "body": {"mode": "raw", "raw": "{\n  \"action_type\": \"view_course\",\n  \"action_detail\": \"Viewed course 1\"\n}"}
+      }
+    },
+    {
+      "name": "Analytics - Overview (Instructor)",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+        "url": {"raw": "http://localhost:8001/analytics/overview/", "protocol": "http", "host": ["localhost"], "port": "8001", "path": ["analytics","overview",""]}
+      }
+    },
