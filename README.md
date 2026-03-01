@@ -60,7 +60,7 @@ Overview
 
 Tech Stack
 - Django 4.2, FastAPI, Uvicorn
-- PostgreSQL (Dockerized), Chart.js, Bootstrap 5 (Material 3-inspired pastels)
+- MYSQL (Dockerized), Chart.js, Bootstrap 5 (Material 3-inspired pastels)
 
 Project Layout
 - manage.py — Django entry point
@@ -143,4 +143,5 @@ Models
 Postman
 - Import postman_collection.json
 - Use Register → Login to obtain token; set variable {{token}}
+
 
